@@ -45,6 +45,7 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
         name: z.string().min(2, {
           message: "Name must be at least 2 characters.",
         }),
+        gazette_url: z.string().optional(),
         name_dv: z.string().optional(),
         date_open: z.string().optional(),
         date_expiry: z.string().optional(),
@@ -55,6 +56,7 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
       type_id: "",
       name: "",
       name_dv: "",
+      gazette_url: "",
       date_open: null,
       date_expiry: null,
       file: "",
@@ -83,7 +85,7 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
       <SheetTrigger asChild>
         <Button onClick={() => setIsOpen(true)}>New Document</Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-full max-w-md">
+      <SheetContent side="right" className="w-full max-w-md overflow-y-scroll">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="flex flex-col h-full">
@@ -159,6 +161,24 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
                           <Input
                             className="font-rasmee rtl"
                             placeholder="Enter name (DV)"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <FormField
+                    control={form.control}
+                    name="gazette_url"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Gazette URL</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Enter Gazette URL (Optional)"
                             {...field}
                           />
                         </FormControl>

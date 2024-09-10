@@ -52,6 +52,7 @@ export default function DocumentsFormEdit({
         name: z.string().min(2, {
           message: "Name must be at least 2 characters.",
         }),
+        gazette_url: z.string().optional(),
         name_dv: z.string().optional(),
         date_open: z.string().optional(),
         date_expiry: z.string().optional(),
@@ -65,6 +66,7 @@ export default function DocumentsFormEdit({
       date_open: null,
       date_expiry: null,
       file: "",
+      gazette_url: "",
     },
   });
 
@@ -77,6 +79,7 @@ export default function DocumentsFormEdit({
     form.setValue("date_open", document.date_open || null);
     form.setValue("date_expiry", document.date_expiry || null);
     form.setValue("file", document.file || "");
+    form.setValue("gazette_url", document.gazette_url || "");
   }, [document]);
 
   useEffect(() => {
@@ -100,7 +103,7 @@ export default function DocumentsFormEdit({
         onClose();
       }}
     >
-      <SheetContent side="right" className="w-full max-w-md">
+      <SheetContent side="right" className="w-full max-w-md overflow-y-scroll">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="flex flex-col h-full">
@@ -176,6 +179,24 @@ export default function DocumentsFormEdit({
                           <Input
                             className="font-rasmee rtl"
                             placeholder="Enter the document name DV"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <FormField
+                    control={form.control}
+                    name="gazette_url"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Gazette URL</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Enter Gazette URL (Optional)"
                             {...field}
                           />
                         </FormControl>

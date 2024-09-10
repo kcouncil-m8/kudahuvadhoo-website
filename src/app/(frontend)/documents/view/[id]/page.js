@@ -16,17 +16,15 @@ const ProjectsIndex = async ({ params }) => {
             </p>
           </div>
           <div className="w-full">
-            <div className="w-full flex px-6 lg:px-[20rem] mt-6">
+            <div className="w-full flex px-6 lg:px-[18rem] mt-6">
               <div className="w-full flex flex-col gap-6 bg-[#F9F8F9] items-center px-6 py-4 rounded-lg rtl">
                 <div className="w-full flex flex-col gap-1 border-b-[1px] border-[#E9E1E9] pb-4">
-                  <p className="font-rasmee text-[16px] text-[#8D898D]">
-                    ފައިލް
-                  </p>
+                  <p className="font-rasmee text-[16px] text-[#8D898D]">ނަން</p>
                   <p className="font-waheed text-[20px]">
                     {data.document.name_dv}
                   </p>
                 </div>
-                <div className="w-full flex lg:flex-row flex-col gap-4">
+                <div className="w-full flex lg:flex-row flex-col gap-6">
                   <div className="w-full flex flex-col gap-1">
                     <p className="font-rasmee text-[16px] text-[#8D898D]">
                       ތާރީޙް
@@ -47,20 +45,37 @@ const ProjectsIndex = async ({ params }) => {
                       </p>
                     </div>
                   )}
-                  <div className="w-full flex flex-col gap-1">
-                    <p className="font-rasmee text-[16px] text-[#8D898D]">
-                      ކޮންޓްރެކްޓް މުއްދަތު
-                    </p>
-                    <Link
-                      href={data.document.file}
-                      className="text-[16px] underline text-[#CF7457]"
-                      target="_blank"
-                      download
-                      rel="noopener noreferrer"
-                    >
-                      Download
-                    </Link>
-                  </div>
+                  {data.document.file && (
+                    <div className="w-full flex flex-col gap-1">
+                      <p className="font-rasmee text-[16px] text-[#8D898D]">
+                        ކޮންޓްރެކްޓް މުއްދަތު
+                      </p>
+                      <Link
+                        href={data.document.file}
+                        className="text-[16px] underline text-[#CF7457]"
+                        target="_blank"
+                        download
+                        rel="noopener noreferrer"
+                      >
+                        Download
+                      </Link>
+                    </div>
+                  )}
+                  {data.document.gazette_url && (
+                    <div className="w-full flex flex-col gap-1">
+                      <p className="font-rasmee text-[16px] text-[#8D898D]">
+                        ގެޒެޓް
+                      </p>
+                      <Link
+                        href={data.document.gazette_url}
+                        className="text-[16px] underline text-[#CF7457]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
