@@ -45,7 +45,7 @@ export async function POST(req) {
     );
     return NextResponse.json({
       message: "success",
-      fileUrl: `https://client-spaces.fra1.digitaloceanspaces.com/${process.env.SPACES_FOLDER}/${randomName}`,
+      fileUrl: `${process.env.SPACES_URL}${process.env.SPACES_FOLDER}/${randomName}`,
     });
   } catch (reason) {
     return NextResponse.json({ message: "failure" });

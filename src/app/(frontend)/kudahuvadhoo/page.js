@@ -8,7 +8,8 @@ const KudahuvadhooIndex = async () => {
     <>
       <div className="w-full py-[4rem]">
         <div className="container mx-auto flex items-center flex-col justify-between px-6 gap-4">
-          <div className="flex w-full items-center justify-center">
+          <div className="flex w-full items-center justify-center flex-col gap-6">
+            <img src="/images/nishaan.svg" className="h-[60px]" />
             <p className="font-waheed text-[42px] text-center">
               ދ.ކުޑަހުވަދޫ ކައުންސިލް އިދާރާ
             </p>
