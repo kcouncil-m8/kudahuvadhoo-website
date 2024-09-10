@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id            String    @id
+  email         String    @unique
+  name          String
+  password_hash String
+  isAdmin       Boolean   @default(false)
+  sessions      Session[]
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
+
+model Category {
+  id      BigInt  @id @default(autoincrement())
+  name    String?
+  name_dv String?
+  news    Blog[]
+}
+
+model Blog {
+  id           BigInt    @id @default(autoincrement())
+  title        String
+  title_dv     String?
+  body         String
+  latin        String?
+  image        String?
+  categoryId   BigInt?
+  isPublished  Boolean   @default(false)
+  date_created DateTime  @default(now()) @db.Timestamptz
+  category     Category? @relation(fields: [categoryId], references: [id])
+}
+
+model Type {
+  id            BigInt     @id @default(autoincrement())
+  name          String
+  name_dv       String?
+  slug          String?
+  announcements Document[]
+}
+
+model Document {
+  id           BigInt    @id @default(autoincrement())
+  type         Type      @relation(fields: [type_id], references: [id])
+  type_id      BigInt
+  name         String
+  name_dv      String?
+  date_created DateTime  @default(now()) @db.Timestamptz
+  date_open    DateTime? @db.Timestamptz
+  date_expiry  DateTime? @db.Timestamptz
+  file         String?
+}
+
+model Setting {
+  id          BigInt  @id @default(autoincrement())
+  value       String
+  name        String
+  image       String?
+  description String?
+}
+
+model Project {
+  id          BigInt    @id @default(autoincrement())
+  percentage  String?
+  name        String
+  name_dv     String?
+  company     String?
+  price       String?
+  started_at  DateTime? @default(now())
+  duration    String?
+  description String?
+}
+
+model Member {
+  id                           BigInt  @id @default(autoincrement())
+  name                         String
+  name_dv                      String?
+  level                        String
+  about                        String?
+  title                        String?
+  title_dv                     String?
+  image                        String?
+  isCouncilMember              Boolean @default(false)
+  isPresident                  Boolean @default(false)
+  isSeniorManagementMember     Boolean @default(false)
+  isWomentDevelopmentCommittee Boolean @default(false)
+}
+
+model Service {
+  id          BigInt  @id @default(autoincrement())
+  title       String
+  title_dv    String?
+  file        String?
+  isPublished Boolean @default(false)
+}
