@@ -390,7 +390,23 @@ export default async function RootLayout({ children }) {
             </nav>
           </aside>
           {/* main */}
-          <div className="h-full w-full">{children}</div>
+          <div className="min-h-full w-full">
+            <div className="min-h-full w-full">{children}</div>
+            <div className="flex flex-col items-center justify-center border-t py-6 border-gray-50">
+              <p className="text-sm text-stone-400">
+                Boli Content Management Atholhu Version 2.1
+              </p>
+              <p className="text-sm text-stone-400">
+                Made with ❤️ by{" "}
+                <Link
+                  href="/admin/licencing"
+                  className="underline font-semibold"
+                >
+                  Kintiq Pvt. Ltd.
+                </Link>
+              </p>
+            </div>
+          </div>
           {/* .main */}
         </div>
       </body>
