@@ -20,6 +20,9 @@ export const getHome = async () => {
     },
   });
   const blogs = await prisma.blog.findMany({
+    where: {
+      isPublished: true,
+    },
     take: 6,
   });
   const documents = await prisma.document.findMany({
