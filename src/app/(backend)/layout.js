@@ -394,7 +394,7 @@ export default async function RootLayout({ children }) {
             <div className="min-h-full w-full">{children}</div>
             <div className="flex flex-col items-center justify-center border-t py-6 border-gray-50">
               <p className="text-sm text-stone-400">
-                Boli Content Management Atholhu Version 2.1
+                Atholhu Content Management Atholhu Version 2.1
               </p>
               <p className="text-sm text-stone-400">
                 Made with ❤️ by{" "}
