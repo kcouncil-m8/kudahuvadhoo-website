@@ -50,7 +50,7 @@ const MobileNav = ({ navLinks }) => {
           <div className="flex flex-row gap-4">
             <Link
               href=""
-              className="font-waheed mt-1 rounded-full bg-[#CF7457] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+              className="font-waheed mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
             >
               ޝަކުވާ ހުށަހެޅުއްވުން
             </Link>
@@ -69,7 +69,7 @@ const MobileNav = ({ navLinks }) => {
                 return (
                   <li>
                     <Link
-                      className="font-waheed text-[20px] hover:text-[#CF7457] w-full"
+                      className="font-waheed text-[20px] hover:text-[#1d8979] w-full"
                       href={link.link}
                     >
                       {link.name}

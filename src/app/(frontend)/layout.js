@@ -51,7 +51,10 @@ export default function RootLayout({ children }) {
               <div className="xl:w-0 w-[1px] h-[41px] bg-[#E2D9E2] bg-opacity-50"></div>
               <Link href="/">
                 <div className="flex gap-6 items-center">
-                  <img src="/images/nishaan.svg" className="h-[40px]" />
+                  <img
+                    src="/images/kudhahuvadhoocouncillogo.png"
+                    className="h-[46px]"
+                  />
                   <div className="text-[#0D0D0D]">
                     <p className="font-waheed lg:text-[18px] text-[16px]">
                       ނިލަންދެއަތޮޅު ދެކުނުބުރި
@@ -78,7 +81,7 @@ export default function RootLayout({ children }) {
                       return (
                         <li key={index}>
                           <Link
-                            className="font-waheed text-[20px] hover:text-[#CF7457]"
+                            className="font-waheed text-[20px] hover:text-[#1d8979]"
                             href={link.link}
                           >
                             {link.name}
@@ -93,7 +96,7 @@ export default function RootLayout({ children }) {
             <div className="flex flex-row gap-4">
               <Link
                 href="/contact"
-                className="font-waheed mt-1 rounded-full bg-[#CF7457] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+                className="font-waheed mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
               >
                 ޝަކުވާ ހުށަހެޅުއްވުން
               </Link>
@@ -106,7 +109,10 @@ export default function RootLayout({ children }) {
           <div className="container px-6 lg:flex mx-auto rtl gap-12 py-12 justify-between">
             <div className="flex items-start">
               <div className="flex gap-3 items-center">
-                <img src="/images/nishaan.svg" className="h-8 w-8 mr-2" />
+                <img
+                  src="/images/kudhahuvadhoocouncillogo.png"
+                  className="h-8 w-8 mr-2"
+                />
                 <h2 className="font-waheed text-[28px]">
                   ނިލަންދެ އަތޮޅު ކުޑަހުވަދޫ ކައުންސިލް އިދާރާ
                 </h2>
@@ -118,7 +124,7 @@ export default function RootLayout({ children }) {
                   return (
                     <li className="mb-2 px-3" key={index}>
                       <Link
-                        className="font-rasmee text-[16px] hover:text-[#CF7457] text-[#6F646F]"
+                        className="font-rasmee text-[16px] hover:text-[#1d8979] text-[#6F646F]"
                         href={link.link}
                       >
                         {link.name}

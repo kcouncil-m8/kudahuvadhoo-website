@@ -85,6 +85,20 @@ export const getBlogById = async (id) => {
   return blog;
 };
 
+export const getBlogMetadataById = async (id) => {
+  const blog = await prisma.blog.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      title: true,
+      title_dv: true,
+      image: true,
+    },
+  });
+  return blog;
+};
+
 export const getServices = async () => {
   const services = await prisma.service.findMany({
     where: {
@@ -118,6 +132,18 @@ export const getDocumentById = async (id) => {
     },
   });
   return { document };
+};
+
+export const getDocumentMetadataById = async (id) => {
+  const document = await prisma.document.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      name: true,
+    },
+  });
+  return document;
 };
 
 export const getProjects = async () => {

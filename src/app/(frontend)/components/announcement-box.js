@@ -5,15 +5,15 @@ import "moment/locale/fr";
 export default function AnnouncementBox({ document }) {
   return (
     <Link href={`/documents/view/${document.id}`} className="flex w-full">
-      <div className="group w-full bg-[#F9F8F9] hover:bg-[#FFF1ED] rounded-xl flex items-center overflow-hidden">
-        <div className="h-full bg-[#F5F2F5] group-hover:bg-[#FAD7CC] px-4 flex items-center justify-center">
+      <div className="group w-full bg-[#F9F8F9] hover:bg-[#1d8979] hover:bg-opacity-10 rounded-xl flex items-center overflow-hidden">
+        <div className="h-full bg-[#F5F2F5] group-hover:bg-[#1d8979] group-hover:bg-opacity-20 px-4 flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="size-6 text-[#E2D9E2] group-hover:text-[#CF7457]"
+            className="size-6 text-[#E2D9E2] group-hover:text-[#1d8979]"
           >
             <path
               strokeLinecap="round"

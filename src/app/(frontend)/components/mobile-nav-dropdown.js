@@ -11,8 +11,8 @@ const MobileNavDropdown = ({ links, name }) => {
   return (
     <li className="w-full">
       <button
-        className={`w-full font-waheed text-[20px] flex gap-2 items-center justify-between hover:text-[#CF7457] ${
-          isDropdownOpen && "text-[#CF7457]"
+        className={`w-full font-waheed text-[20px] flex gap-2 items-center justify-between hover:text-[#1d8979] ${
+          isDropdownOpen && "text-[#1d8979]"
         }`}
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
@@ -43,7 +43,7 @@ const MobileNavDropdown = ({ links, name }) => {
                       router.push(link.link);
                       setIsDropdownOpen(false);
                     }}
-                    className="font-rasmee text-[16px] text-[#0D0D0D] flex py-3 whitespace-nowrap hover:text-[#CF7457]"
+                    className="font-rasmee text-[16px] text-[#0D0D0D] flex py-3 whitespace-nowrap hover:text-[#1d8979]"
                   >
                     {link.name}
                   </button>

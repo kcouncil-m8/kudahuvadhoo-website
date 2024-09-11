@@ -1,6 +1,27 @@
-import { getBlogById } from "../../actions";
+import { getBlogById, getBlogMetadataById } from "../../actions";
 
-const BlogShow = async ({ params }) => {
+export async function generateMetadata({ params, searchParams }, parent) {
+  const id = params.id;
+  const blog = await getBlogMetadataById(id);
+
+  const previousImages = searchParams.previousImages
+    ? JSON.parse(searchParams.previousImages)
+    : [];
+
+  return {
+    title: blog.title,
+    description: blog.description || "Read more about this blog post.",
+    openGraph: {
+      title: blog.title,
+      description: blog.description || "Read more about this blog post.",
+      images: [blog.image, ...previousImages],
+      type: "article",
+      url: `${process.env.BASE_URL}/blog/${id}`,
+    },
+  };
+}
+
+export default async function BlogShow({ params }) {
   const { id } = params;
   const blog = await getBlogById(id);
 
@@ -22,6 +43,4 @@ const BlogShow = async ({ params }) => {
       </div>
     </div>
   );
-};
-
-export default BlogShow;
+}

@@ -11,7 +11,7 @@ const ContactBox = () => {
         <div className="flex flex-row gap-4">
           <Link
             href="/contact"
-            className="font-waheed mt-1 rounded-full bg-[#CF7457] flex gap-2 items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+            className="font-waheed mt-1 rounded-full bg-[#1d8979] flex gap-2 items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

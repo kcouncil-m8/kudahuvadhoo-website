@@ -21,8 +21,8 @@ const ProjectsIndex = async ({ params }) => {
                 <p
                   className={`flex font-waheed items-center justify-center px-6 py-2 rounded-full cursor-pointer ${
                     type.slug === params.slug
-                      ? "bg-[#CF7457] text-white hover:bg-[#CF7457]"
-                      : "bg-gray-200 text-black hover:bg-[#CF7457] hover:text-white"
+                      ? "bg-[#1d8979] text-white hover:bg-[#1d8979]"
+                      : "bg-gray-200 text-black hover:bg-[#1d8979] hover:text-white"
                   }`}
                 >
                   {type.name_dv}

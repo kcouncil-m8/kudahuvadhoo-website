@@ -1,7 +1,31 @@
-import { getDocumentById } from "@/app/(frontend)/actions";
+import {
+  getDocumentById,
+  getDocumentMetadataById,
+} from "@/app/(frontend)/actions";
 import ContactBox from "@/app/(frontend)/components/contact-box";
 import moment from "moment";
 import Link from "next/link";
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const id = params.id;
+  const document = await getDocumentMetadataById(id);
+
+  const previousImages = searchParams.previousImages
+    ? JSON.parse(searchParams.previousImages)
+    : [];
+
+  return {
+    title: document.name,
+    description: document.description || "Read more about this blog post.",
+    openGraph: {
+      title: document.name,
+      description: document.description || "Read more about this blog post.",
+      images: [document.image, ...previousImages],
+      type: "article",
+      url: `${process.env.BASE_URL}/document/view/${id}`,
+    },
+  };
+}
 
 const ProjectsIndex = async ({ params }) => {
   const data = await getDocumentById(params.id);
@@ -52,7 +76,7 @@ const ProjectsIndex = async ({ params }) => {
                       </p>
                       <Link
                         href={data.document.file}
-                        className="text-[16px] underline text-[#CF7457]"
+                        className="text-[16px] underline text-[#1d8979]"
                         target="_blank"
                         download
                         rel="noopener noreferrer"
@@ -68,7 +92,7 @@ const ProjectsIndex = async ({ params }) => {
                       </p>
                       <Link
                         href={data.document.gazette_url}
-                        className="text-[16px] underline text-[#CF7457]"
+                        className="text-[16px] underline text-[#1d8979]"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
