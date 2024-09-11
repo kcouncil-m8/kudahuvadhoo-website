@@ -74,7 +74,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="bg-[#F6F3F6] h-[60px] flex items-center justify-center w-full">
-              <Link href="" className="w-full">
+              <Link href="/kudahuvadhoo" className="w-full">
                 <div className="px-6 w-full">
                   <p className="w-full font-waheed text-[20px] text-center">
                     ރަށާއި ބެހޭ އިތުރު މަޢުލޫމާތު

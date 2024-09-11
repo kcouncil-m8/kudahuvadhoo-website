@@ -27,7 +27,9 @@ export default async function BlogShow({ params }) {
 
   return (
     <div className="container mx-auto py-8 flex flex-col gap-12">
-      <h1 className="font-waheed text-[32px] text-center">{blog.title_dv}</h1>
+      <h1 className="font-waheed text-[32px] text-center py-4">
+        {blog.title_dv}
+      </h1>
       <div className="rounded-lg overflow-hidden lg:px-[8rem] px-0">
         <img
           src={blog.image}

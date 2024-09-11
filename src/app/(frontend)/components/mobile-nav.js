@@ -34,7 +34,10 @@ const MobileNav = ({ navLinks }) => {
             <div className="xl:w-0 w-[1px] h-[41px] bg-[#E2D9E2] bg-opacity-50"></div>
             <Link href="/">
               <div className="flex gap-6 items-center">
-                <img src="/images/nishaan.svg" className="h-[40px]" />
+                <img
+                  src="/images/kudhahuvadhoocouncillogo.png"
+                  className="h-[40px]"
+                />
                 <div className="text-[#0D0D0D]">
                   <p className="font-waheed lg:text-[18px] text-[16px]">
                     ނިލަންދެއަތޮޅު ދެކުނުބުރި
