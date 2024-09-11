@@ -11,7 +11,7 @@ const MobileNav = ({ navLinks }) => {
     <>
       <nav className="w-full bg-[#F5F9FFF0] lg:h-[100px] h-[80px] xl:hidden flex items-center justify-between rtl">
         <div className="container mx-auto flex items-center justify-between px-6 gap-4">
-          <div className="flex items-center justify-center lg:gap-12 gap-6">
+          <div className="flex items-center justify-center lg:gap-12 gap-4">
             <button
               onClick={() => setShowMenu(showMenu ? false : true)}
               className="text-[#0D0D0D]"
@@ -36,14 +36,14 @@ const MobileNav = ({ navLinks }) => {
               <div className="flex gap-6 items-center">
                 <img
                   src="/images/kudhahuvadhoocouncillogo.png"
-                  className="h-[40px]"
+                  className="h-[36px]"
                 />
-                <div className="text-[#0D0D0D]">
+                <div className="text-[#0D0D0D] mt-1">
                   <p className="font-waheed lg:text-[18px] text-[16px]">
-                    ނިލަންދެއަތޮޅު ދެކުނުބުރި
+                    ކުޑަހުވަދޫ
                   </p>
-                  <p className="font-waheed lg:text-[18px] text-[16px]">
-                    ކުޑަހުވަދޫ ކައުންސިލް އިދާރާ
+                  <p className="font-waheed lg:text-[18px] text-[16px] -mt-1">
+                    ކައުންސިލް
                   </p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ const MobileNav = ({ navLinks }) => {
           <div className="flex flex-row gap-4">
             <Link
               href=""
-              className="font-waheed mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+              className="font-waheed whitespace-nowrap mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
             >
               ޝަކުވާ ހުށަހެޅުއްވުން
             </Link>
