@@ -5,20 +5,30 @@ import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import ToolBar from "./ToolBar";
 import TextDirection from "tiptap-text-direction";
+import Image from "@tiptap/extension-image";
+import React from "react";
+import ImagePasteExtension from "./ImagePasteExtension";
 
 function Tiptap({ description, onChange }) {
   const editor = useEditor({
     extensions: [
+      Image.configure({
+        inline: true,
+        HTMLAttributes: {
+          class: "w-full h-auto",
+        },
+      }),
       StarterKit.configure({}),
       TextDirection.configure({
         types: ["heading", "paragraph"],
       }),
-      Heading.configure({
-        HTMLAttributes: {
-          class: "text-xl font-bold",
-          levels: [2],
-        },
-      }),
+      ImagePasteExtension,
+      // Heading.configure({
+      //   HTMLAttributes: {
+      //     class: "text-xl font-bold",
+      //     levels: [2],
+      //   },
+      // }),
     ],
     content: description,
     editorProps: {

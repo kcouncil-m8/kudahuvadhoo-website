@@ -210,6 +210,7 @@ export default function BlogFormEdit({
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                           value={field.value}
+                          ref={null} // Avoid passing refs to function components
                         >
                           <FormControl>
                             <SelectTrigger className="w-full">

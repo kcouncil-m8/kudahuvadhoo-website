@@ -2,6 +2,7 @@
 import React from "react";
 import {
   Bold,
+  Heading1,
   Heading2,
   Italic,
   List,
@@ -17,6 +18,15 @@ function ToolBar({ editor }) {
 
   return (
     <div className="flex gap-3 border border-input rounded-lg p-1 my-2">
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("heading")}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 1 }).run()
+        }
+      >
+        <Heading1 className="h-4 w-4" />
+      </Toggle>
       <Toggle
         size="sm"
         pressed={editor.isActive("heading")}
