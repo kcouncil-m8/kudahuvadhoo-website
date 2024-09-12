@@ -1,18 +1,5 @@
 import "../globals.css";
-import {
-  ChartBarStackedIcon,
-  FileIcon,
-  GroupIcon,
-  LayoutListIcon,
-  LucideLayoutDashboard,
-  PodcastIcon,
-  ProjectorIcon,
-  Settings,
-  Triangle,
-  User,
-  UserRoundCogIcon,
-  Volume1Icon,
-} from "lucide-react";
+import { Settings, Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
