@@ -10,10 +10,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   return {
     title: blog.title,
-    description: blog.description || "Read more about this blog post.",
+    description:
+      blog.description ||
+      "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
     openGraph: {
       title: blog.title,
-      description: blog.description || "Read more about this blog post.",
+      description:
+        blog.description ||
+        "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
       images: [blog.image, ...previousImages],
       type: "article",
       url: `${process.env.BASE_URL}/blog/${id}`,

@@ -1,5 +1,9 @@
 import React from "react";
 
+export const metadata = {
+  title: "Contact Us - Dh.Kudahuvadhoo Council",
+};
+
 const ContactIndex = () => {
   return (
     <div className="w-full lg:py-[8rem] py-[4rem]">

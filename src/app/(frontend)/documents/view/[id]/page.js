@@ -16,11 +16,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
   return {
     title: document.name,
-    description: document.description || "Read more about this blog post.",
+    description:
+      document.description ||
+      "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
     openGraph: {
       title: document.name,
-      description: document.description || "Read more about this blog post.",
-      images: [document.image, ...previousImages],
+      description:
+        document.description ||
+        "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
+      images: ["/images/ogdocument.png", ...previousImages],
       type: "article",
       url: `${process.env.BASE_URL}/document/view/${id}`,
     },

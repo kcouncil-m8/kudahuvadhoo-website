@@ -5,8 +5,27 @@ import moment from "moment";
 import MobileNav from "./components/mobile-nav";
 
 export const metadata = {
-  title: "Kudahuvadhoo Council",
-  description: "Kudahuvadhoo Council",
+  title: "Dh.Kudahuvadhoo Council",
+  description:
+    "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
+  keywords:
+    "Dh.Kudahuvadhoo, Council, local governance, community services, Maldives",
+  author: "Dh.Kudahuvadhoo Council Team",
+  viewport: "width=device-width, initial-scale=1.0",
+  openGraph: {
+    title: "Dh.Kudahuvadhoo Council",
+    description:
+      "Welcome to the Dh.Kudahuvadhoo Council, your source for local governance and community services.",
+    images: [
+      {
+        url: "/images/ogimage.png", // Replace with the actual path to your OG image
+        width: 1200,
+        height: 630,
+        alt: "Dh.Kudahuvadhoo Council",
+      },
+    ],
+    siteName: "Dh.Kudahuvadhoo Council",
+  },
 };
 
 export default function RootLayout({ children }) {
