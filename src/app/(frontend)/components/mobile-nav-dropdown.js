@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const MobileNavDropdown = ({ links, name }) => {
+const MobileNavDropdown = ({ links, name, onClick }) => {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -42,6 +42,7 @@ const MobileNavDropdown = ({ links, name }) => {
                     onClick={() => {
                       router.push(link.link);
                       setIsDropdownOpen(false);
+                      onClick();
                     }}
                     className="font-rasmee text-[16px] text-[#0D0D0D] flex py-3 whitespace-nowrap hover:text-[#1d8979]"
                   >

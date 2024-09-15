@@ -3,8 +3,10 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import MobileNavDropdown from "./mobile-nav-dropdown";
+import { useRouter } from "next/navigation";
 
 const MobileNav = ({ navLinks }) => {
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -32,7 +34,13 @@ const MobileNav = ({ navLinks }) => {
               </svg>
             </button>
             <div className="xl:w-0 w-[1px] h-[41px] bg-[#E2D9E2] bg-opacity-50"></div>
-            <Link href="/">
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                setShowMenu(false);
+                router.push("/contact");
+              }}
+            >
               <div className="flex gap-6 items-center">
                 <img
                   src="/images/kudhahuvadhoocouncillogo.png"
@@ -47,16 +55,19 @@ const MobileNav = ({ navLinks }) => {
                   </p>
                 </div>
               </div>
-            </Link>
+            </div>
             <div className="xl:w-[1px] w-0 h-[41px] bg-[#E2D9E2] bg-opacity-50"></div>
           </div>
           <div className="flex flex-row gap-4">
-            <Link
-              href=""
-              className="font-waheed whitespace-nowrap mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+            <div
+              className="font-waheed cursor-pointer whitespace-nowrap mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+              onClick={() => {
+                setShowMenu(false);
+                router.push("/contact");
+              }}
             >
               ޝަކުވާ ހުށަހެޅުއްވުން
-            </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -66,17 +77,26 @@ const MobileNav = ({ navLinks }) => {
             {navLinks.map((link, index) => {
               if (link.links) {
                 return (
-                  <MobileNavDropdown name={link.name} links={link.links} />
+                  <MobileNavDropdown
+                    name={link.name}
+                    links={link.links}
+                    onClick={() => {
+                      setShowMenu(false);
+                    }}
+                  />
                 );
               } else {
                 return (
-                  <li>
-                    <Link
-                      className="font-waheed text-[20px] hover:text-[#1d8979] w-full"
-                      href={link.link}
+                  <li key={index}>
+                    <div
+                      className="cursor-pointer font-waheed text-[20px] hover:text-[#1d8979] w-full"
+                      onClick={() => {
+                        setShowMenu(false);
+                        router.push(link.link);
+                      }}
                     >
                       {link.name}
-                    </Link>
+                    </div>
                   </li>
                 );
               }

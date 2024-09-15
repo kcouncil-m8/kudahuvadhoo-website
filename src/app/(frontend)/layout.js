@@ -1,8 +1,8 @@
 import Link from "next/link";
 import "../globals.css";
-import NavDropdown from "./components/nav-dropdown";
 import moment from "moment";
 import MobileNav from "./components/mobile-nav";
+import MainNav from "./components/main-nav";
 
 export const metadata = {
   title: "Dh.Kudahuvadhoo Council",
@@ -86,30 +86,7 @@ export default function RootLayout({ children }) {
               </Link>
               <div className="xl:w-[1px] w-0 h-[41px] bg-[#E2D9E2] bg-opacity-50"></div>
               <div className="xl:not-sr-only sr-only">
-                <ul className="flex gap-8 text-[#0D0D0D]">
-                  {navLinks.map((link, index) => {
-                    if (link.links) {
-                      return (
-                        <NavDropdown
-                          key={index}
-                          name={link.name}
-                          links={link.links}
-                        />
-                      );
-                    } else {
-                      return (
-                        <li key={index}>
-                          <Link
-                            className="font-waheed text-[20px] hover:text-[#1d8979]"
-                            href={link.link}
-                          >
-                            {link.name}
-                          </Link>
-                        </li>
-                      );
-                    }
-                  })}
-                </ul>
+                <MainNav navLinks={navLinks} />
               </div>
             </div>
             <div className="flex flex-row gap-4">
