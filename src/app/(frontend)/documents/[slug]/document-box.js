@@ -5,7 +5,7 @@ import React from "react";
 const DocumentBox = ({ document }) => {
   return (
     <Link href={`/documents/view/${document?.id}`} className="flex w-full">
-      <div className="group w-full bg-[#F9F8F9] hover:bg-[#1d8979] hover:bg-opacity-10 rounded-xl flex items-center overflow-hidden">
+      <div className="group w-full bg-[#F9F8F9] hover:bg-[#CF7457] hover:bg-opacity-10 rounded-xl flex items-center overflow-hidden">
         <div className="w-full px-6 py-6 flex justify-end flex-col">
           <p className="font-waheed text-[20px] rtl">{document.name_dv}</p>
           {document.date_open && (
@@ -14,14 +14,14 @@ const DocumentBox = ({ document }) => {
             </p>
           )}
         </div>
-        <div className="h-full bg-[#F5F2F5] group-hover:bg-[#1d8979] group-hover:bg-opacity-20 px-4 flex items-center justify-center">
+        <div className="h-full bg-[#F5F2F5] group-hover:bg-[#CF7457] group-hover:bg-opacity-20 px-4 flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="size-6 text-[#E2D9E2] group-hover:text-[#1d8979]"
+            className="size-6 text-[#E2D9E2] group-hover:text-[#CF7457]"
           >
             <path
               strokeLinecap="round"

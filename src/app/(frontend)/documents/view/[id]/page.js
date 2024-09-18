@@ -80,7 +80,7 @@ const ProjectsIndex = async ({ params }) => {
                       </p>
                       <Link
                         href={data.document.file}
-                        className="text-[16px] underline text-[#1d8979]"
+                        className="text-[16px] underline text-[#CF7457]"
                         target="_blank"
                         download
                         rel="noopener noreferrer"
@@ -96,7 +96,7 @@ const ProjectsIndex = async ({ params }) => {
                       </p>
                       <Link
                         href={data.document.gazette_url}
-                        className="text-[16px] underline text-[#1d8979]"
+                        className="text-[16px] underline text-[#CF7457]"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

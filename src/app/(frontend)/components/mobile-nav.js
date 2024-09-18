@@ -60,7 +60,7 @@ const MobileNav = ({ navLinks }) => {
           </div>
           <div className="flex flex-row gap-4">
             <div
-              className="font-waheed cursor-pointer whitespace-nowrap mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+              className="font-waheed cursor-pointer whitespace-nowrap mt-1 rounded-full bg-[#CF7457] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
               onClick={() => {
                 setShowMenu(false);
                 router.push("/contact");
@@ -89,7 +89,7 @@ const MobileNav = ({ navLinks }) => {
                 return (
                   <li key={index}>
                     <div
-                      className="cursor-pointer font-waheed text-[20px] hover:text-[#1d8979] w-full"
+                      className="cursor-pointer font-waheed text-[20px] hover:text-[#CF7457] w-full"
                       onClick={() => {
                         setShowMenu(false);
                         router.push(link.link);

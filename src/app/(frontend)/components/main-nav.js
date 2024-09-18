@@ -13,7 +13,7 @@ const MainNav = ({ navLinks }) => {
           return (
             <li key={index}>
               <Link
-                className="font-waheed text-[20px] hover:text-[#1d8979]"
+                className="font-waheed text-[20px] hover:text-[#CF7457]"
                 href={link.link}
               >
                 {link.name}

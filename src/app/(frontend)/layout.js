@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
             <div className="flex flex-row gap-4">
               <Link
                 href="/contact"
-                className="font-waheed mt-1 rounded-full bg-[#1d8979] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+                className="font-waheed mt-1 rounded-full bg-[#CF7457] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
               >
                 ޝަކުވާ ހުށަހެޅުއްވުން
               </Link>
@@ -120,7 +120,7 @@ export default function RootLayout({ children }) {
                   return (
                     <li className="mb-2 px-3" key={index}>
                       <Link
-                        className="font-rasmee text-[16px] hover:text-[#1d8979] text-[#6F646F]"
+                        className="font-rasmee text-[16px] hover:text-[#CF7457] text-[#6F646F]"
                         href={link.link}
                       >
                         {link.name}

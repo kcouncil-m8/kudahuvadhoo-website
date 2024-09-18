@@ -10,8 +10,8 @@ const NavDropdown = ({ links, name }) => {
   return (
     <li className="relative z-30">
       <button
-        className={`font-waheed text-[20px] flex gap-2 items-center hover:text-[#1d8979] ${
-          isDropdownOpen && "text-[#1d8979]"
+        className={`font-waheed text-[20px] flex gap-2 items-center hover:text-[#CF7457] ${
+          isDropdownOpen && "text-[#CF7457]"
         }`}
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
@@ -42,7 +42,7 @@ const NavDropdown = ({ links, name }) => {
                       router.push(link.link);
                       setIsDropdownOpen(false);
                     }}
-                    className="font-rasmee text-[16px] text-[#0D0D0D] flex py-3 whitespace-nowrap hover:text-[#1d8979]"
+                    className="font-rasmee text-[16px] text-[#0D0D0D] flex py-3 whitespace-nowrap hover:text-[#CF7457]"
                   >
                     {link.name}
                   </button>
