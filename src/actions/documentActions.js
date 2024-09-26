@@ -17,6 +17,7 @@ export const createDocument = async (input) => {
     data: {
       type_id: input.type_id,
       name: input.name,
+      number: input.number,
       name_dv: input.name_dv,
       gazette_url: input.gazette_url,
       date_open: new Date(input.date_open).toISOString(),
@@ -35,6 +36,7 @@ export const updateDocument = async (input) => {
     },
     data: {
       type_id: input.type_id,
+      number: input.number,
       name: input.name,
       name_dv: input.name_dv,
       gazette_url: input.gazette_url,

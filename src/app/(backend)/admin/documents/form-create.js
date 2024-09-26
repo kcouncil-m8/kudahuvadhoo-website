@@ -50,6 +50,7 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
         date_open: z.string().optional(),
         date_expiry: z.string().optional(),
         file: z.string().optional(),
+        number: z.string().optional(),
       })
     ),
     defaultValues: {
@@ -60,6 +61,7 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
       date_open: null,
       date_expiry: null,
       file: "",
+      number: "",
     },
   });
 
@@ -144,6 +146,24 @@ export default function DocumentsFormCreate({ onClose, onSuccess, types }) {
                         <FormLabel>Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Enter name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <FormField
+                    control={form.control}
+                    name="number"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Document Number</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Enter document number"
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

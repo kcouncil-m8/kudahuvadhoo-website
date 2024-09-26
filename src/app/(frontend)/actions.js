@@ -39,6 +39,7 @@ export const getHome = async () => {
     size: size,
     blogs: blogs,
     documents: documents,
+    data: new Date(),
   };
 };
 
@@ -122,7 +123,11 @@ export const getDocumentBySlug = async (slug) => {
     },
   });
   const types = await prisma.type.findMany();
-  return { documents, type, types };
+  return {
+    documents,
+    type,
+    types,
+  };
 };
 
 export const getDocumentById = async (id) => {
@@ -148,7 +153,25 @@ export const getDocumentMetadataById = async (id) => {
 
 export const getProjects = async () => {
   const projects = await prisma.project.findMany();
-  return { projects };
+  const completedProjectsCount = await prisma.project.count({
+    where: {
+      percentage: "100",
+    },
+  });
+  const notCompletedProjectsCount = await prisma.project.count({
+    where: {
+      percentage: {
+        not: "100",
+      },
+    },
+  });
+  const totalProjectsCount = await prisma.project.count();
+  return {
+    projects,
+    completedProjectsCount,
+    notCompletedProjectsCount,
+    totalProjectsCount,
+  };
 };
 
 export const getProject = async (id) => {

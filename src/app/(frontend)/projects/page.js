@@ -17,7 +17,7 @@ const ProjectsIndex = async () => {
                 ކުރިއަށްދަނީ
               </p>
               <p className="font-sans text-[16px] font-semibold text-[#477BFF]">
-                1,123
+                {data.notCompletedProjectsCount ?? 0}
               </p>
             </div>
             <div className="w-full flex gap-2 items-center justify-center">
@@ -25,7 +25,7 @@ const ProjectsIndex = async () => {
                 ނިމިފައިވަނީ
               </p>
               <p className="font-sans text-[16px] font-semibold text-[#477BFF]">
-                1,123
+                {data.completedProjectsCount ?? 0}
               </p>
             </div>
             <div className="w-full flex gap-2 items-center justify-center">
@@ -33,7 +33,7 @@ const ProjectsIndex = async () => {
                 ޖުމްލަ
               </p>
               <p className="font-sans text-[16px] font-semibold text-[#477BFF]">
-                1,123
+                {data.totalProjectsCount ?? 0}
               </p>
             </div>
           </div>

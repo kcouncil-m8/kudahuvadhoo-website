@@ -87,8 +87,9 @@ export default function DocumentsIndex() {
               <TableHeader>
                 <TableRow className="bg-white">
                   <TableHead className="px-4">#</TableHead>
+                  <TableHead className="px-4">Number</TableHead>
                   <TableHead className="px-4">Name</TableHead>
-                  <TableHead className="px-4">Category</TableHead>
+                  <TableHead className="px-4">Type</TableHead>
                   <TableHead className="px-4">Open Date</TableHead>
                   <TableHead className="px-4">Deadline</TableHead>
                   <TableHead className="text-right px-4">Actions</TableHead>
@@ -101,6 +102,9 @@ export default function DocumentsIndex() {
                       <TableRow key={index}>
                         <TableCell className="px-4">
                           {document.id.toString()}
+                        </TableCell>
+                        <TableCell className="px-4">
+                          {document.number ?? "N/A"}
                         </TableCell>
                         <TableCell className="px-4">{document.name}</TableCell>
                         <TableCell className="px-4">

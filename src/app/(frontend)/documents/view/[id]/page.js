@@ -39,7 +39,7 @@ const ProjectsIndex = async ({ params }) => {
       <div className="w-full py-[4rem]">
         <div className="container mx-auto flex items-center flex-col justify-between px-6 gap-4">
           <div className="flex w-full items-center justify-center">
-            <p className="font-waheed text-[42px] text-center">
+            <p className="font-waheed lg:text-[42px] text-[36px] px-6 text-center">
               {data.document.name_dv}
             </p>
           </div>
@@ -47,15 +47,30 @@ const ProjectsIndex = async ({ params }) => {
             <div className="w-full flex px-6 lg:px-[18rem] mt-6">
               <div className="w-full flex flex-col gap-6 bg-[#F9F8F9] items-center px-6 py-4 rounded-lg rtl">
                 <div className="w-full flex flex-col gap-1 border-b-[1px] border-[#E9E1E9] pb-4">
-                  <p className="font-rasmee text-[16px] text-[#8D898D]">ނަން</p>
-                  <p className="font-waheed text-[20px]">
-                    {data.document.name_dv}
-                  </p>
+                  {data.document.number ? (
+                    <div className="w-full">
+                      <p className="font-rasmee text-[16px] text-[#8D898D]">
+                        ނަންބަރު
+                      </p>
+                      <p className="font-[500] text-[16px] ltr text-right">
+                        {data.document.number}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="w-full">
+                      <p className="font-rasmee text-[16px] text-[#8D898D]">
+                        ނަން
+                      </p>
+                      <p className="font-waheed text-[20px]">
+                        {data.document.name_dv}
+                      </p>
+                    </div>
+                  )}
                 </div>
                 <div className="w-full flex lg:flex-row flex-col gap-6">
                   <div className="w-full flex flex-col gap-1">
                     <p className="font-rasmee text-[16px] text-[#8D898D]">
-                      ތާރީޙް
+                      ޕަބްލިޝްކުރި ތާރީޚު
                     </p>
                     <p className="ltr text-right text-[16px]">
                       {moment(data.document.open_date).format("DD MMMM YYYY")}
@@ -64,7 +79,7 @@ const ProjectsIndex = async ({ params }) => {
                   {data.document.date_expiry && (
                     <div className="w-full flex flex-col gap-1">
                       <p className="font-rasmee text-[16px] text-[#8D898D]">
-                        ހަމަވާ ތާރީޙް
+                        ސުންގަޑި
                       </p>
                       <p className="ltr text-right text-[16px]">
                         {moment(data.document.date_expiry).format(

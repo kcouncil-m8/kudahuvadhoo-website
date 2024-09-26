@@ -56,6 +56,7 @@ model Document {
   type         Type      @relation(fields: [type_id], references: [id])
   type_id      BigInt
   name         String
+  number       String?
   gazette_url  String?
   name_dv      String?
   date_created DateTime  @default(now()) @db.Timestamptz

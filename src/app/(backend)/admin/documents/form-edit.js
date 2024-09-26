@@ -57,6 +57,7 @@ export default function DocumentsFormEdit({
         date_open: z.string().optional(),
         date_expiry: z.string().optional(),
         file: z.string().optional(),
+        number: z.string().optional(),
       })
     ),
     defaultValues: {
@@ -67,6 +68,7 @@ export default function DocumentsFormEdit({
       date_expiry: null,
       file: "",
       gazette_url: "",
+      number: "",
     },
   });
 
@@ -76,10 +78,21 @@ export default function DocumentsFormEdit({
       : form.setValue("type_id", "");
     form.setValue("name", document.name || "");
     form.setValue("name_dv", document.name_dv || "");
-    form.setValue("date_open", document.date_open || null);
-    form.setValue("date_expiry", document.date_expiry || null);
+    form.setValue(
+      "date_open",
+      document.date_open
+        ? new Date(document.date_open).toISOString().split("T")[0]
+        : null
+    );
+    form.setValue(
+      "date_expiry",
+      document.date_expiry
+        ? new Date(document.date_expiry).toISOString().split("T")[0]
+        : null
+    );
     form.setValue("file", document.file || "");
     form.setValue("gazette_url", document.gazette_url || "");
+    form.setValue("number", document.number || "");
   }, [document]);
 
   useEffect(() => {
@@ -171,6 +184,24 @@ export default function DocumentsFormEdit({
                 <div className="space-y-2">
                   <FormField
                     control={form.control}
+                    name="number"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Document Number</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Enter document number"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <FormField
+                    control={form.control}
                     name="name_dv"
                     render={({ field }) => (
                       <FormItem>
@@ -246,6 +277,7 @@ export default function DocumentsFormEdit({
                 <div>
                   <FileUpload
                     label="File"
+                    defaultValue={document.file}
                     onSuccess={(url) => {
                       form.setValue("file", url);
                     }}
