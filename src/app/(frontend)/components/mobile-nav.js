@@ -38,7 +38,7 @@ const MobileNav = ({ navLinks }) => {
               className="cursor-pointer"
               onClick={() => {
                 setShowMenu(false);
-                router.push("/contact");
+                router.push("/");
               }}
             >
               <div className="flex gap-6 items-center">

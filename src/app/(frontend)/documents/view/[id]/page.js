@@ -76,7 +76,7 @@ const ProjectsIndex = async ({ params }) => {
                   {data.document.file && (
                     <div className="w-full flex flex-col gap-1">
                       <p className="font-rasmee text-[16px] text-[#8D898D]">
-                        ކޮންޓްރެކްޓް މުއްދަތު
+                        ފައިލް
                       </p>
                       <Link
                         href={data.document.file}
