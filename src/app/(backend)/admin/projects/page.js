@@ -103,7 +103,7 @@ export default function ProjectsIndex() {
                           {project.company}
                         </TableCell>
                         <TableCell className="px-4">{project.price}</TableCell>
-                        <TableCell className="px-4">
+                        <TableCell className="px-4 font-rasmee rtl text-left">
                           {project.duration}
                         </TableCell>
                         <TableCell className="text-right px-4">

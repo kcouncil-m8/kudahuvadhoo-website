@@ -116,7 +116,7 @@ export default async function Home() {
               ފަހުގެ އިއުލާންތައް
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" dir="rtl">
             {data.documents.map((document, index) => {
               return <AnnouncementBox key={index} document={document} />;
             })}
@@ -154,7 +154,10 @@ export default async function Home() {
               ފަހުގެ ހަބަރާއި ހަރަކާތްތައް
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">
+          <div
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-6"
+            dir="rtl"
+          >
             {data.blogs.map((blog, index) => (
               <BlogBox key={index} blog={blog} />
             ))}
@@ -192,7 +195,10 @@ export default async function Home() {
               ފަހުގެ ޕްރޮޖެކްޓްތައް
             </p>
           </div>
-          <div className="w-full items-center justify-center grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 rtl">
+          <div
+            className="w-full items-center justify-center grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 rtl"
+            dir="rtl"
+          >
             {data.projects.map((project, index) => (
               <ProjectBox key={index} project={project} />
             ))}

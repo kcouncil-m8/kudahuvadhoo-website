@@ -126,8 +126,9 @@ export default function ProjectsFormCreate({ onClose, onSuccess }) {
                         <FormLabel>Project Name (Dhivehi)</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Enter project name in Dhivehi"
+                            placeholder="ނަން"
                             {...field}
+                            className="font-rasmee rtl"
                           />
                         </FormControl>
                         <FormMessage />
@@ -175,9 +176,13 @@ export default function ProjectsFormCreate({ onClose, onSuccess }) {
                     name="duration"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Duration (Years)</FormLabel>
+                        <FormLabel>Duration</FormLabel>
                         <FormControl>
-                          <Input placeholder="Enter duration" {...field} />
+                          <Input
+                            placeholder="ކޮންޓްރެކްޓް މުއްދަތު"
+                            {...field}
+                            className="font-rasmee rtl"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
