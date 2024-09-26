@@ -64,6 +64,7 @@ export const getStats = async () => {
     households: households,
     population: population,
     size: size,
+    data: new Date(),
   };
 };
 
@@ -106,7 +107,7 @@ export const getServices = async () => {
       isPublished: true,
     },
   });
-  return { services };
+  return { services, data: new Date() };
 };
 
 export const getDocumentBySlug = async (slug) => {
@@ -127,6 +128,7 @@ export const getDocumentBySlug = async (slug) => {
     documents,
     type,
     types,
+    data: new Date(),
   };
 };
 
@@ -136,7 +138,7 @@ export const getDocumentById = async (id) => {
       id,
     },
   });
-  return { document };
+  return { document, data: new Date() };
 };
 
 export const getDocumentMetadataById = async (id) => {
@@ -148,7 +150,7 @@ export const getDocumentMetadataById = async (id) => {
       name: true,
     },
   });
-  return document;
+  return { document, data: new Date() };
 };
 
 export const getProjects = async () => {
@@ -171,6 +173,7 @@ export const getProjects = async () => {
     completedProjectsCount,
     notCompletedProjectsCount,
     totalProjectsCount,
+    data: new Date(),
   };
 };
 
@@ -180,7 +183,7 @@ export const getProject = async (id) => {
       id,
     },
   });
-  return { project };
+  return { project, data: new Date() };
 };
 
 export const getSeniorManagementMembers = async () => {
@@ -192,7 +195,7 @@ export const getSeniorManagementMembers = async () => {
       level: "asc", // or 'desc' depending on the desired order
     },
   });
-  return { members };
+  return { members, data: new Date() };
 };
 
 export const getCouncilMembers = async () => {
@@ -204,7 +207,7 @@ export const getCouncilMembers = async () => {
       level: "asc", // or 'desc' depending on the desired order
     },
   });
-  return { members };
+  return { members, data: new Date() };
 };
 
 export const getWomenDevelopmentCommitteeMembers = async () => {
@@ -216,5 +219,5 @@ export const getWomenDevelopmentCommitteeMembers = async () => {
       level: "asc", // or 'desc' depending on the desired order
     },
   });
-  return { members };
+  return { members, data: new Date() };
 };
