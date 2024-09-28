@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export const getHome = async () => {
   const projects = await prisma.project.findMany({ take: 4 });
@@ -32,6 +33,8 @@ export const getHome = async () => {
       },
     },
   });
+  revalidatePath("/");
+
   return {
     projects,
     households: households,
