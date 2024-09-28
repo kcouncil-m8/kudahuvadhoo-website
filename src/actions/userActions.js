@@ -40,6 +40,26 @@ export const createUser = async (input) => {
   return { data: createUser };
 };
 
+export const updateUserPassword = async (input) => {
+  const passwordHash = await hash(input.password, {
+    memoryCost: 19456,
+    timeCost: 2,
+    outputLen: 32,
+    parallelism: 1,
+  });
+
+  const updateUser = await prisma.user.update({
+    where: {
+      id: input.id,
+    },
+    data: {
+      password_hash: passwordHash,
+    },
+  });
+
+  return { data: updateUser };
+};
+
 export const updateUser = async (input) => {
   const updateUser = await prisma.user.update({
     where: {

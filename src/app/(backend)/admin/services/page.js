@@ -78,7 +78,7 @@ export default function ServiceIndex() {
             <LoadingIndicator />
           </div>
         ) : (
-          <div className="flex w-full border-stone-200 border rounded-lg overflow-hidden">
+          <div className="flex w-full border-[#e2e8f0] border rounded-lg overflow-hidden">
             <Table className="overflow-x-scroll">
               <TableHeader>
                 <TableRow className="bg-white">

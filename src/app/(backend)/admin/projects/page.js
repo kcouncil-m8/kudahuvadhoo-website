@@ -20,21 +20,24 @@ import LoadingIndicator from "@/components/ui/loading-indicator";
 import ProjectsFormCreate from "./form-create";
 import ProjectsFormEdit from "./form-edit";
 import { deleteProject, getProjects } from "@/actions/projectActions";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function ProjectsIndex() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState();
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
-    getData();
+    getData(keyword);
   }, []);
 
-  const getData = async () => {
+  const getData = async (keyword) => {
     setIsLoading(true);
     setSelectedProject();
-    const data = await getProjects();
+    const data = await getProjects(keyword);
     setProjects(data.projects);
     setIsLoading(false);
   };
@@ -42,7 +45,7 @@ export default function ProjectsIndex() {
   const onDelete = async (id) => {
     setIsLoading(true);
     await deleteProject(id);
-    getData();
+    getData(keyword);
     setIsLoading(false);
   };
 
@@ -57,7 +60,7 @@ export default function ProjectsIndex() {
               setIsOpen(false);
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
           <ProjectsFormEdit
@@ -67,10 +70,30 @@ export default function ProjectsIndex() {
               setSelectedProject();
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
         </div>
+      </div>
+      <div className="flex w-full justify-between pt-4 px-4">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            getData(keyword);
+          }}
+          className="flex w-full items-center justify-between gap-2 mb-4"
+        >
+          <Input
+            type="text"
+            placeholder="Enter project name to search"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            className="px-4 py-2 border rounded-md"
+          />
+          <Button type="submit" className="px-4 py-2 text-white rounded-md">
+            Search
+          </Button>
+        </form>
       </div>
       <main className="flex p-4">
         {isLoading ? (
@@ -78,7 +101,7 @@ export default function ProjectsIndex() {
             <LoadingIndicator />
           </div>
         ) : (
-          <div className="flex w-full border-stone-200 border rounded-lg overflow-hidden">
+          <div className="flex w-full border-[#e2e8f0] border rounded-lg overflow-hidden">
             <Table className="overflow-x-scroll">
               <TableHeader>
                 <TableRow className="bg-white">
@@ -87,6 +110,7 @@ export default function ProjectsIndex() {
                   <TableHead className="px-4">Company</TableHead>
                   <TableHead className="px-4">Price</TableHead>
                   <TableHead className="px-4">Duration</TableHead>
+                  <TableHead className="px-4">Percentage</TableHead>
                   <TableHead className="text-right px-4">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -103,8 +127,11 @@ export default function ProjectsIndex() {
                           {project.company}
                         </TableCell>
                         <TableCell className="px-4">{project.price}</TableCell>
-                        <TableCell className="px-4 font-rasmee rtl text-left">
+                        <TableCell className="px-4 font-rasmee whitespace-nowrap rtl text-left">
                           {project.duration}
+                        </TableCell>
+                        <TableCell className="px-4 text-left">
+                          {project.percentage}%
                         </TableCell>
                         <TableCell className="text-right px-4">
                           <DropdownMenu>

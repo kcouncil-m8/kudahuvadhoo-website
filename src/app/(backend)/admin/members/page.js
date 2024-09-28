@@ -20,21 +20,24 @@ import LoadingIndicator from "@/components/ui/loading-indicator";
 import MembersFormCreate from "./form-create";
 import MembersFormEdit from "./form-edit";
 import { deleteMember, getMembers } from "@/actions/memberActions";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function MembersIndex() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState();
   const [members, setMembers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
-    getData();
+    getData(keyword);
   }, []);
 
-  const getData = async () => {
+  const getData = async (keyword) => {
     setIsLoading(true);
     setSelectedMember();
-    const data = await getMembers();
+    const data = await getMembers(keyword);
     setMembers(data.members);
     setIsLoading(false);
   };
@@ -42,7 +45,7 @@ export default function MembersIndex() {
   const onDelete = async (id) => {
     setIsLoading(true);
     await deleteMember(id);
-    getData();
+    getData(keyword);
     setIsLoading(false);
   };
 
@@ -57,7 +60,7 @@ export default function MembersIndex() {
               setIsOpen(false);
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
           <MembersFormEdit
@@ -67,10 +70,30 @@ export default function MembersIndex() {
               setSelectedMember();
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
         </div>
+      </div>
+      <div className="flex w-full justify-between pt-4 px-4">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            getData(keyword);
+          }}
+          className="flex w-full items-center justify-between gap-2 mb-4"
+        >
+          <Input
+            type="text"
+            placeholder="Enter project name to search"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            className="px-4 py-2 border rounded-md"
+          />
+          <Button type="submit" className="px-4 py-2 text-white rounded-md">
+            Search
+          </Button>
+        </form>
       </div>
       <main className="flex p-4">
         {isLoading ? (
@@ -78,7 +101,7 @@ export default function MembersIndex() {
             <LoadingIndicator />
           </div>
         ) : (
-          <div className="flex w-full border-stone-200 border rounded-lg overflow-hidden">
+          <div className="flex w-full border-[#e2e8f0] border rounded-lg overflow-hidden">
             <Table className="overflow-x-scroll">
               <TableHeader>
                 <TableRow className="bg-white">

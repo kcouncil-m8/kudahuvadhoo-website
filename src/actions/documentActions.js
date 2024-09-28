@@ -2,8 +2,26 @@
 
 import prisma from "@/lib/prisma";
 
-export const getDocuments = async () => {
+export const getDocuments = async (keyword) => {
   const documents = await prisma.document.findMany({
+    where: keyword
+      ? {
+          OR: [
+            {
+              name: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+            {
+              number: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+          ],
+        }
+      : {},
     include: {
       type: true,
     },

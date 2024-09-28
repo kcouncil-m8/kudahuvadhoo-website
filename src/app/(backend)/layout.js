@@ -133,7 +133,7 @@ export default async function RootLayout({ children }) {
                     </Link>
                   </TooltipTrigger>
                   <TooltipContent side="right" sideOffset={5}>
-                    Files
+                    Documents
                   </TooltipContent>
                 </Tooltip>
                 <Tooltip>

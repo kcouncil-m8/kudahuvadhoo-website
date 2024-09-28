@@ -20,6 +20,8 @@ import LoadingIndicator from "@/components/ui/loading-indicator";
 import BlogFormCreate from "./form-create";
 import BlogFormEdit from "./form-edit";
 import { deleteBlog, getBlogs } from "@/actions/blogActions";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function BlogIndex() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,15 +29,16 @@ export default function BlogIndex() {
   const [blogs, setBlogs] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
-    getData();
+    getData(keyword);
   }, []);
 
-  const getData = async () => {
+  const getData = async (keyword) => {
     setIsLoading(true);
     setSelectedBlog();
-    const data = await getBlogs();
+    const data = await getBlogs(keyword);
     setBlogs(data.blogs);
     setCategories(data.categories);
     setIsLoading(false);
@@ -44,7 +47,7 @@ export default function BlogIndex() {
   const onDelete = async (id) => {
     setIsLoading(true);
     await deleteBlog(id);
-    getData();
+    getData(keyword);
     setIsLoading(false);
   };
 
@@ -60,7 +63,7 @@ export default function BlogIndex() {
               setIsOpen(false);
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
           <BlogFormEdit
@@ -71,10 +74,30 @@ export default function BlogIndex() {
               setSelectedBlog();
             }}
             onSuccess={() => {
-              getData();
+              getData(keyword);
             }}
           />
         </div>
+      </div>
+      <div className="flex w-full justify-between pt-4 px-4">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            getData(keyword);
+          }}
+          className="flex w-full items-center justify-between gap-2 mb-4"
+        >
+          <Input
+            type="text"
+            placeholder="Enter blog title or a keyword to search"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            className="px-4 py-2 border rounded-md"
+          />
+          <Button type="submit" className="px-4 py-2 text-white rounded-md">
+            Search
+          </Button>
+        </form>
       </div>
       <main className="flex p-4">
         {isLoading ? (
@@ -82,7 +105,7 @@ export default function BlogIndex() {
             <LoadingIndicator />
           </div>
         ) : (
-          <div className="flex w-full border-stone-200 border rounded-lg overflow-hidden">
+          <div className="flex w-full border-[#e2e8f0] border rounded-lg overflow-hidden">
             <Table className="overflow-x-scroll">
               <TableHeader className="font-bold">
                 <TableRow className="bg-white">

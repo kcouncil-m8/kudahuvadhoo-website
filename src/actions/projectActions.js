@@ -2,8 +2,27 @@
 
 import prisma from "@/lib/prisma";
 
-export const getProjects = async () => {
-  const projects = await prisma.project.findMany();
+export const getProjects = async (keyword) => {
+  const projects = await prisma.project.findMany({
+    where: keyword
+      ? {
+          OR: [
+            {
+              name: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+            {
+              percentage: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+          ],
+        }
+      : {},
+  });
   return { projects };
 };
 

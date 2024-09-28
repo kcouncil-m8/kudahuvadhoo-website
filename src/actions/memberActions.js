@@ -2,8 +2,26 @@
 
 import prisma from "@/lib/prisma";
 
-export const getMembers = async () => {
+export const getMembers = async (keyword) => {
   const members = await prisma.member.findMany({
+    where: keyword
+      ? {
+          OR: [
+            {
+              name: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+            {
+              title: {
+                contains: keyword,
+                mode: "insensitive",
+              },
+            },
+          ],
+        }
+      : {},
     orderBy: {
       level: "desc",
     },

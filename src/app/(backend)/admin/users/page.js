@@ -21,10 +21,12 @@ import UsersFormEdit from "./form-edit";
 import UsersFormCreate from "./form-create";
 import { set } from "zod";
 import LoadingIndicator from "@/components/ui/loading-indicator";
+import UsersUpdatePasswordForm from "./update-password";
 
 export default function UsersIndex() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedUser, setSeletedUser] = useState();
+  const [selectedUserPassword, setSeletedUserPassword] = useState();
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,6 +37,7 @@ export default function UsersIndex() {
   const getData = async () => {
     setIsLoading(true);
     setSeletedUser();
+    setSeletedUserPassword();
     const data = await getUsers();
     setUsers(data.users);
     setIsLoading(false);
@@ -64,6 +67,16 @@ export default function UsersIndex() {
               getData();
             }}
           />
+          <UsersUpdatePasswordForm
+            user={selectedUserPassword ? selectedUserPassword : {}}
+            open={selectedUserPassword ? true : false}
+            onClose={() => {
+              setSeletedUserPassword();
+            }}
+            onSuccess={() => {
+              getData();
+            }}
+          />
         </div>
       </div>
       <main className="flex p-4">
@@ -72,7 +85,7 @@ export default function UsersIndex() {
             <LoadingIndicator />
           </div>
         ) : (
-          <div className="flex w-full border-stone-200 border rounded-lg overflow-hidden">
+          <div className="flex w-full border-[#e2e8f0] border-[] border rounded-lg overflow-hidden">
             <Table className="overflow-x-scroll">
               <TableHeader>
                 <TableRow className="bg-white">
@@ -109,6 +122,13 @@ export default function UsersIndex() {
                                 }}
                               >
                                 Edit
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                onClick={() => {
+                                  setSeletedUserPassword(user);
+                                }}
+                              >
+                                Update Password
                               </DropdownMenuItem>
                               <DropdownMenuItem className="text-destructive">
                                 Delete

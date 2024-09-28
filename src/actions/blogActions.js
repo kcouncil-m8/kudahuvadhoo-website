@@ -2,8 +2,16 @@
 
 import prisma from "@/lib/prisma";
 
-export const getBlogs = async () => {
+export const getBlogs = async (keyword) => {
   const blogs = await prisma.blog.findMany({
+    where: keyword
+      ? {
+          title: {
+            contains: keyword,
+            mode: "insensitive",
+          },
+        }
+      : {},
     include: {
       category: true,
     },
