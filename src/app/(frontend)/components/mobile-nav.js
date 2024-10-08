@@ -48,10 +48,10 @@ const MobileNav = ({ navLinks }) => {
                 />
                 <div className="text-[#0D0D0D] mt-1">
                   <p className="font-waheed lg:text-[18px] text-[16px]">
-                    ކުޑަހުވަދޫ
+                    ނިލަންދެއަތޮޅު ދެކުނުބުރި
                   </p>
                   <p className="font-waheed lg:text-[18px] text-[16px] -mt-1">
-                    ކައުންސިލް
+                    ކުޑަހުވަދޫ ކައުންސިލް އިދާރާ
                   </p>
                 </div>
               </div>
@@ -60,13 +60,24 @@ const MobileNav = ({ navLinks }) => {
           </div>
           <div className="flex flex-row gap-4">
             <div
-              className="font-waheed cursor-pointer whitespace-nowrap mt-1 rounded-full bg-[#CF7457] flex items-center justify-center lg:h-[41px] h-[36px] lg:text-[18px] text-[14px] text-white lg:px-6 px-4"
+              className="font-waheed cursor-pointer whitespace-nowrap mt-1 rounded-full bg-[#CF7457] flex items-center gap-2 justify-center lg:h-[41px] lg:w-auto h-[40px] w-[40px] lg:text-[20px] text-[14px] text-white lg:px-6 px-0"
               onClick={() => {
                 setShowMenu(false);
                 router.push("/contact");
               }}
             >
-              ޝަކުވާ ހުށަހެޅުއްވުން
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="size-4"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </div>
           </div>
         </div>

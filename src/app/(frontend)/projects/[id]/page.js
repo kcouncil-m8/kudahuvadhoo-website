@@ -19,13 +19,21 @@ const ProjectShow = async ({ params }) => {
           <div className="flex gap-4 bg-[#F9F8F9] items-center justify-center px-6 py-4 rounded-lg rtl mt-6">
             <div className="flex justify-between gap-4">
               <p className="font-rasmee text-[16px]">ނިމިފައިވަނީ</p>
-              <p className="font-sans text-[16px] font-semibold text-[#477BFF]">
+              <p
+                className={`font-sans text-[16px] font-semibold ${
+                  project.percentage === "100"
+                    ? "text-green-500"
+                    : "text-[#477BFF]"
+                }`}
+              >
                 {project.percentage}%
               </p>
             </div>
             <div className="bg-white h-[8px] rounded-[16px] relative overflow-hidden w-[200px] lg:w-[300px]">
               <div
-                className="h-[8px] rounded-full absolute top-0 right-0 bg-[#6B95FF]"
+                className={`h-[8px] rounded-full absolute top-0 right-0 ${
+                  project.percentage === "100" ? "bg-green-500" : "bg-[#6B95FF]"
+                }`}
                 style={{ width: `${project.percentage}%` }}
               ></div>
             </div>

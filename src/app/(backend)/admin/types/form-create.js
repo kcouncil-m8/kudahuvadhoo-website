@@ -107,7 +107,7 @@ export default function TypeFormCreate({ onClose, onSuccess }) {
                         <FormControl>
                           <Input
                             className="font-rasmee rtl"
-                            placeholder="Enter dhivehi name"
+                            placeholder="ނަން"
                             {...field}
                           />
                         </FormControl>
@@ -122,7 +122,7 @@ export default function TypeFormCreate({ onClose, onSuccess }) {
                     name="slug"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Dhivehi Name</FormLabel>
+                        <FormLabel>Slug</FormLabel>
                         <FormControl>
                           <Input placeholder="Enter the slug" {...field} />
                         </FormControl>

@@ -113,7 +113,7 @@ export default function TypeFormEdit({ open, onClose, onSuccess, type }) {
                         <FormControl>
                           <Input
                             className="font-rasmee rtl"
-                            placeholder="Enter the dhivehi name"
+                            placeholder="ނަން"
                             {...field}
                           />
                         </FormControl>
@@ -128,7 +128,7 @@ export default function TypeFormEdit({ open, onClose, onSuccess, type }) {
                     name="slug"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Dhivehi Name</FormLabel>
+                        <FormLabel>Slug</FormLabel>
                         <FormControl>
                           <Input placeholder="Enter the slug" {...field} />
                         </FormControl>
