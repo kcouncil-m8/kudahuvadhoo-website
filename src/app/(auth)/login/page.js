@@ -53,7 +53,16 @@ export default function Login() {
 
   return (
     <div className="w-full lg:grid min-h-screen lg:grid-cols-2">
-      <div className="h-[20rem] lg:h-full bg-black lg:block"></div>
+      <div className="h-[20rem] lg:h-full bg-black">
+        <div
+          className="h-[20rem] lg:h-full bg-black lg:block opacity-10"
+          style={{
+            backgroundImage: "url('/images/headerbg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
+      </div>
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto flex flex-col gap-6">
           <div className="grid gap-2 text-center">

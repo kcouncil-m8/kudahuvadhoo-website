@@ -14,10 +14,13 @@ export default async function LogoutButton() {
           type="submit"
           variant="ghost"
           size="icon"
-          className="mt-auto rounded-lg"
+          className="lg:w-full w-[40px] items-center transform transition-transform duration-300 hover:scale-[1.02] bg-transparent text-[#000000] hover:bg-transparent lg:mx-4 mx-0"
           aria-label="Account"
         >
-          <DoorOpen className="size-5" />
+          <div className="w-full font-[600] flex flex-row lg:justify-start gap-2 items-center justify-center">
+            <DoorOpen className="size-5" />
+            <p className="lg:flex hidden">Logout</p>
+          </div>
         </Button>
       </form>
     </div>

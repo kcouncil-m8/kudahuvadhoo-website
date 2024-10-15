@@ -11,6 +11,7 @@ import Link from "next/link";
 import { validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import LogoutButton from "@/components/ui/logout-button";
+import MenuItem from "@/components/ui/menu-item";
 
 export const metadata = {
   title: "Atholhu CMS V2.1",
@@ -26,60 +27,62 @@ export default async function RootLayout({ children }) {
   return (
     <html>
       <body className="antialiased">
-        <div className="flex h-screen w-full pl-[53px]">
-          <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
-            <div className="border-b p-2">
-              <Button variant="outline" size="icon" aria-label="Home">
-                <Triangle className="size-5 fill-foreground" />
-              </Button>
+        <div className="flex h-screen w-full lg:pl-[220px] pl-[60px]">
+          <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r lg:w-[220px] w-[60px]">
+            <div className="border-b p-2 h-[53px] flex items-center lg:justify-start justify-center">
+              <div className="flex items-center gap-2">
+                <Triangle className="size-6 fill-foreground lg:ml-2 ml-0" />
+                <p className="w-full text-md font-bold lg:flex hidden">
+                  Kudahuvadhoo
+                </p>
+              </div>
             </div>
             <nav className="grid gap-2 p-2">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/blog"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+              <ul className="flex flex-col gap-1">
+                <li>
+                  <MenuItem
+                    title="Blog Posts"
+                    path="/admin/blog"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
-                        color={"#141b34"}
+                        width={20}
+                        height={20}
                         fill={"none"}
                       >
                         <path
-                          d="M16.2141 4.98239L17.6158 3.58063C18.39 2.80646 19.6452 2.80646 20.4194 3.58063C21.1935 4.3548 21.1935 5.60998 20.4194 6.38415L19.0176 7.78591M16.2141 4.98239L10.9802 10.2163C9.93493 11.2616 9.41226 11.7842 9.05637 12.4211C8.70047 13.058 8.3424 14.5619 8 16C9.43809 15.6576 10.942 15.2995 11.5789 14.9436C12.2158 14.5877 12.7384 14.0651 13.7837 13.0198L19.0176 7.78591M16.2141 4.98239L19.0176 7.78591"
+                          d="M12 17H12.009"
                           stroke="currentColor"
-                          strokeWidth="2"
+                          strokeWidth="3"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
                         <path
-                          d="M21 12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682C3 18.364 3 16.2426 3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3"
+                          d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        <path
+                          d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
                           stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Blog
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/services"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Services"
+                    path="/admin/services"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -91,23 +94,19 @@ export default async function RootLayout({ children }) {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Services
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/documents"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Documents"
+                    path="/admin/documents"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -130,23 +129,19 @@ export default async function RootLayout({ children }) {
                           strokeLinecap="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Documents
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/projects"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Projects"
+                    path="/admin/projects"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -172,23 +167,19 @@ export default async function RootLayout({ children }) {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Projects
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/types"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Types"
+                    path="/admin/types"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -234,23 +225,19 @@ export default async function RootLayout({ children }) {
                           strokeLinecap="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Types
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/categories"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Categories"
+                    path="/admin/categories"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -275,23 +262,19 @@ export default async function RootLayout({ children }) {
                           strokeLinecap="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Categories
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/members"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Members"
+                    path="/admin/members"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -307,23 +290,19 @@ export default async function RootLayout({ children }) {
                           strokeLinecap="round"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Members
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/users"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
+                    }
+                  />
+                </li>
+                <li>
+                  <MenuItem
+                    title="Users"
+                    path="/admin/users"
+                    icon={
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        width={22}
-                        height={22}
+                        width={20}
+                        height={20}
                         color={"#141b34"}
                         fill={"none"}
                       >
@@ -340,40 +319,51 @@ export default async function RootLayout({ children }) {
                           strokeWidth="2"
                         />
                       </svg>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Users
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+                    }
+                  />
+                </li>
+              </ul>
             </nav>
             <nav className="mt-auto grid gap-1 p-2">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="/admin/settings"
-                      className="rounded-lg h-[36px] flex items-center justify-center hover:bg-accent"
-                    >
-                      <Settings className="size-5" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Help
-                  </TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div>
-                      <LogoutButton />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" sideOffset={5}>
-                    Logout
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <ul className="flex flex-col gap-1">
+                <li>
+                  <MenuItem
+                    title="Settings"
+                    path="/admin/settings"
+                    icon={
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width={20}
+                        height={20}
+                        fill={"none"}
+                      >
+                        <path
+                          d="M12 17H12.009"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        <path
+                          d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    }
+                  />
+                </li>
+                <li>
+                  <LogoutButton />
+                </li>
+              </ul>
             </nav>
           </aside>
           {/* main */}
